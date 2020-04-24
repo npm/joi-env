@@ -7,8 +7,21 @@
   "peerDependencies": {
     "@hapi/joi": "^17.0.0"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/joi": "^17.0.0",
+    "@hapi/lab": "^22.0.4",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "scripts": {
+    "lint": "lab -dL",
+    "lint:fix": "lab -dL --lint-fix",
+    "test": "lab -a @hapi/code -L -t 100"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/npm/joi-env.git"

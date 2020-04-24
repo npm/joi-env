@@ -1,15 +1,15 @@
 'use strict'
 
-const prepareChildren = (root, value = {}) => {
+const prepareChildren = (root, value) => {
   if (root.schema.type === 'object') {
+    value = value || {}
     for (const child of root.schema.$_terms.keys) {
       value[child.key] = prepareChildren(child, value[child.key])
     }
-    return value
   }
 
   const key = root.schema.$_getFlag('env')
-  if (key === undefined || !process.env.hasOwnProperty(key)) {
+  if (key === undefined || !Object.prototype.hasOwnProperty.call(process.env, key)) {
     return value
   }
 
