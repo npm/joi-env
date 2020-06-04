@@ -1,6 +1,6 @@
 {
   "name": "@npmcorp/joi-env",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a joi extension providing support for environment variables",
   "main": "index.js",
   "dependencies": {},
