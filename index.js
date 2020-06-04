@@ -1,12 +1,10 @@
 'use strict'
 
 const prepareChildren = (root, value) => {
-  if (root.schema.type === 'object') {
+  if (root.schema.type === 'object' && root.schema.$_terms.keys) {
     value = value || {}
-    if (root.schema.$_terms.keys) {
-      for (const child of root.schema.$_terms.keys) {
-        value[child.key] = prepareChildren(child, value[child.key])
-      }
+    for (const child of root.schema.$_terms.keys) {
+      value[child.key] = prepareChildren(child, value[child.key])
     }
   }
 

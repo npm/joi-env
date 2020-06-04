@@ -53,6 +53,6 @@ describe('.env', () => {
       nested: Joi.object().default(null)
     })
     const config = schema.validate({})
-    expect(config.nested).to.not.exist()
+    expect(config.value.nested).to.equal(null)
   })
 })
