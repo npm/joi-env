@@ -3,8 +3,10 @@
 const prepareChildren = (root, value) => {
   if (root.schema.type === 'object') {
     value = value || {}
-    for (const child of root.schema.$_terms.keys) {
-      value[child.key] = prepareChildren(child, value[child.key])
+    if (root.schema.$_terms.keys) {
+      for (const child of root.schema.$_terms.keys) {
+        value[child.key] = prepareChildren(child, value[child.key])
+      }
     }
   }
 
