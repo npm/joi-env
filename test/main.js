@@ -47,4 +47,12 @@ describe('.env', () => {
     const config = schema.validate({})
     expect(config.value).to.equal({ myKey: undefined })
   })
+
+  it('validates object w/ default null', () => {
+    const schema = Joi.object({
+      nested: Joi.object().default(null)
+    })
+    const config = schema.validate({})
+    expect(config.value.nested).to.equal(null)
+  })
 })
