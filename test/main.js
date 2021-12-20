@@ -3,7 +3,7 @@
 const lab = (exports.lab = require('@hapi/lab').script())
 const { expect } = require('@hapi/code')
 const { beforeEach, describe, it } = lab
-const BaseJoi = require('@hapi/joi')
+const BaseJoi = require('joi')
 const JoiEnv = require('../')
 const Joi = BaseJoi.extend(JoiEnv)
 
